@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Boogaloo">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chivo">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre Franklin">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space Grotesk">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cantarell">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7 Quarter 2</title>
+  <style>
+
+    #mySidenav a {
+  position: fixed;
+  left: -120px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 200px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+#mySidenav a span {
+  margin-left: 125px;
+}
+
+#mySidenav a:hover {
+  color: #f1f1f1;
+  width: 250px; /* Adjust the width on hover */
+}
+
+#about {
+  top: 20px;
+  background-color: red;
+}
+
+#blog {
+  top: 80px;
+  background-color: #FFAA33	;
+}
+
+#projects {
+  top: 140px;
+  background-color: brown;
+}
+
+#contact {
+  top: 200px;
+  background-color: #555;
+}
+    
+
+
+    /* Added styles for content sections */
+    .content-section {
+      display: none;
+      margin-left: 120px;
+      padding: 16px;
+    }
+
+    .active-section {
+      display: block;
+    }
+
+    img {
+      width: 80vw;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    .faq-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+  .faq-question {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color:#f9f9f9;
+  margin-bottom: 5px;
+  transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+  background-color: brown; /* Change the background color on hover */
+}
+
+
+
+   .faq-answer {
+  padding: 10px;
+  border: 1px solid #ddd;
+  display: none;
+  transition: opacity 0.3s ease-in-out; /* Add transition for opacity */
+}
+
+.faq-answer.active {
+  display: block;
+  opacity: 1; /* Show the answer with a fade-in effect */
+}
+
+.faq-answer:hover {
+  background-color: #e6e6e6; /* Add background color on hover */
+}
+
+
+    .fwh-slide--1st {
+      height: 83vh;
+      background-color: #152238;
+      box-sizing: border-box;
+      padding: 0px;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      width: 80%;
+    }
+
+    .one {
+      background: url(learnbe.png);
+    }
+
+    .two {
+      background: url(vision.png);
+    }
+
+    .three {
+      background: url(target.png);
+    }
+
+    .section {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 80vh;
+      cursor: pointer;
+      flex: 0.2;
+      margin: 8px;
+      position: relative;
+      transition: all 0.7s ease-out;
+    }
+
+    .section.active {
+      flex: 3;
+    }
+    
+    .fwh-slide--2nd {
+      height: 83vh;
+      background-color: #F5F5DC;
+      box-sizing: border-box;
+      padding: 0px;
+      margin: 0;
+      box-shadow: 0 0 10px rgba(5,5,0,0.5);
+
+
+    }
+    
+    main {
+			max-width: 1000px;
+			margin: 20px auto;
+			padding: 20px;
+			background-color: #ffffff;
+			box-shadow: 0 0 10px rgba(5,5,0,0.5);
+}
+
+/* Three columns side by side */
+.column {
+  float: left;
+  width: 31%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container1 {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.container1::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.fwh-slide--4th {
+  
+  height: 8vh;
+      background-color: #F5F5DC;
+      box-sizing: border-box;
+      padding: 1px;
+      margin: 5;
+      box-shadow: 0 0 10px rgba(5,5,0,0.5);
+      margin-left: 45px;
+
+}
+    
+  </style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="#" id="about" onclick="openSection('about-section')">
+  <span style="font-family: 'Space Grotesk'; font-weight: bold; text-transform: letter-spacing: 1px;">
+    Home</span></a>
+
+<a href="#" id="blog" onclick="openSection('blog-section')">
+  <span style="font-family: 'Space Grotesk'; font-weight: bold; text-transform: letter-spacing: 1px; margin-left: 115px;">
+    Content
+  </span>
+</a>
+
+  <a href="#" id="projects" onclick="openSection('projects-section')"><span style="font-family: 'Space Grotesk'; font-weight: bold; text-transform: letter-spacing: 1px; margin-left: 115px;">FAQs</span></a>
+  
+  <a href="#" id="contact" onclick="openSection('contact-section')"><span style="font-family: 'Space Grotesk'; font-weight: bold; text-transform: letter-spacing: 1px; margin-left: 115px;">Contact</span></a>
+</div>
+
+<div id="about-section" class="content-section active-section">
+  <img src="vid.gif">
+  <br><br><br><br>
+  <div class="faq-question" onclick="toggleAnswer(1)" style="width: 1000px;">
+    <strong style="font-family: 'Cantarell';">What Is Knowledge Crew?</strong>
+  </div>
+  
+  <div class="faq-answer" id="answer1" style="width: 1000px;">
+    <p style="font-family: 'Space Grotesk';">The term 'Knowledge Crew' is a collaborative and knowledgeable team working together. The use of the word 'crew' implies a sense of unity and shared purpose among the six members. The primary activity of the Knowledge Crew is content creation. This could include videos designed to answer questions or provide valuable insights.</p>
+  </div>
+  <section class="fwh-slide--1st" style="width: 1020px;">
+    <div class="container" style="width: 1090px;">
+      <div class="section one active"></div>
+      <div class="section two"></div>
+      <div class="section three"></div>
+      <div class="section four"></div>
+    </div>
+  </section>
+<section class="fwh-slide--2nd" style="width: 1020px; margin-left: 0px;">
+  <br><br><br>
+  <h2 style="font-family: 'Space Grotesk'; margin-left: 90px; margin-right: 90px;">Our Vision</h2>
+    <p style="font-family: 'Space Grotesk'; margin-left: 90px; margin-right: 90px;">We aspire to be a catalyst for positive change, inspiring individuals to engage meaningfully in events and initiatives that address societal challenges and promote collective growth. Through accessible and inclusive knowledge-sharing, we envision a future where informed and united communities collaborate to build a more resilient, compassionate, and interconnected world.</p>
+
+<br>
+<h2 style="font-family: 'Space Grotesk'; margin-left: 90px; margin-right: 90px;">Our Mission</h2>
+    <p style="font-family: 'Space Grotesk'; margin-left: 90px; margin-right: 90px;">Knowledge Crew mission is to serve as a reliable source of information and guidance, aiming to contribute to the community. Through friendly interviews and Q&A sessions, open to anyone interested in joining, we provide accurate and valuable insights. At Knowledge Crew, we aspire to create an environment where future volunteers feel at ease and enrich their minds with knowledge fostering a commitment to positive change in the community.</p>
+</section>
+</div>
+
+<div id="blog-section" class="content-section">
+  <main>
+<br><br>
+
+<iframe width="800" height="450" src="https://www.youtube.com/embed/VmAk5Sgr330" title="Atasha Muhlach Plays Ask Me Anything | Ask Me Anything | PREVIEW" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="float: left;margin-left: 100px;"></iframe>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
+<h2 style="font-family: 'Space Grotesk'; text-align: center;">Atasha Muhlach Plays Ask Me Anything | Ask Me Anything | PREVIEW</h2>
+<p style="font-family: 'Libre Franklin'; margin-left:150px;margin-right:150px; text-align: center;">Atasha Muhlach an artist in the Philippines's, 'Ask Me Anything' video on YouTube garnered 312,000 views within just 8 months. This video was produced and uploaded by a renowned organization PREVIEW, indicating the popularity of 'Ask Me Anything' as it piqued the curiosity of a large number of viewers.</p>
+<br>
+<hr>
+<br><br>
+
+<iframe width="800" height="450" src="https://www.youtube.com/embed/rtAi1xlx5M0" title="Get To Know Me Zeinab Harake *kalog* | First Vlog!!!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="float: left;margin-left: 100px;"></iframe>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<h2 style="font-family: 'Space Grotesk'; text-align: center;">Get To Know Me Zeinab Harake | First Vlog</h2>
+<p style="font-family: 'Libre Franklin'; margin-left:150px;margin-right:150px; text-align: center;">Zeinab Harake, a well-known influencer in the Philippines, shared a video on YouTube where she discussed her life and allowed viewers to get to know her through an 'Ask Me Anything' or 'Get to Know Me ' video. The video has accumulated 4 million views over the course of four years, underscoring the effectiveness of AMA content as a powerful promotional tool.</p>
+<br>
+<hr>
+<br><br>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/oQBrcNzUtQ4" title="Olivia Rodrigo on Cardi B, Feeling Powerful, and Her Dream Role | Ask Me Anything | ELLE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="float: left;margin-left: 100px;"></iframe>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<h2 style="font-family: 'Space Grotesk'; text-align: center;">Olivia Rodrigo and Her Dream Role | Ask Me Anything | ELLE</h2>
+<p style="font-family: 'Libre Franklin'; margin-left:150px;margin-right:150px; text-align: center;">Olivia Rodrigo, a renowned American singer, had her 'Ask Me Anything' video featured by the well-known organization ELLE, which garnered an impressive 457,000 views over a span of two years. This serves as yet another compelling example of the effectiveness of AMA content as a potent promotional tool.</p>
+	</main>
+</div>
+
+<div id="projects-section" class="content-section">
+  <main>
+    
+<h2 style="font-family: 'Space Grotesk'; margin-left: 10px; margin-right: 90px;">Frequently Asked Questions</h2>
+<br>
+    <div class="faq-question" onclick="toggleAnswer(2)" style="width: 980px;">
+    <strong style="font-family: 'Cantarell';">1. Why did we create our brand?</strong>
+  </div>
+  <div class="faq-answer" id="answer2" style="width: 980px;">
+    <p style="font-family: 'Space Grotesk';">Our brand was created to offer people a go-to YouTube channel, serving as a reliable source of information whenever they seek updates on events aimed at addressing challenges within communities and offering assistance to those facing problems.</p>
+  </div>
+  <br><br>
+  <div class="faq-question" onclick="toggleAnswer(3)" style="width: 980px;">
+    <strong style="font-family: 'Cantarell';">2. How is Knowledge Crew unique?</strong>
+  </div>
+  <div class="faq-answer" id="answer3" style="width: 980px;">
+    <p style="font-family: 'Space Grotesk';">Knowledge Crew is unique itself through highly interactive content, engaging with our audience in unique ways, including comments, live sessions, and video creation. The unique feature of our content lies not only in its interactive nature but also in the valuable information we provide. Our content is designed to make a positive impact on communities, ensuring that while creating engaging content, we are concurrently contributing to various aspects of community well-being and offering assistance in different ways.</p>
+  </div>
+  <br><br>
+   <div class="faq-question" onclick="toggleAnswer(4)" style="width: 980px;">
+    <strong style="font-family: 'Cantarell';">3. What is the purpose of our content?</strong>
+  </div>
+  <div class="faq-answer" id="answer4" style="width: 980px;">
+    <p style="font-family: 'Space Grotesk';">The main purpose of our content is to provide valuable information, promote various programs, and inspire individuals, fostering a sense of encouragement and engagement among our audience.</p>
+  </div>
+  <br><br>
+  <div class="faq-question" onclick="toggleAnswer(5)" style="width: 980px;">
+    <strong style="font-family: 'Cantarell';">4. What is the main goal of our brand?</strong>
+  </div>
+  <div class="faq-answer" id="answer5" style="width: 980px;">
+    <p style="font-family: 'Space Grotesk';">The primary goal of our channel is to disseminate information and inspire individuals to actively contribute to communities facing with challenges. By updating our audience about programs and initiatives, we aim to encourage collective efforts towards community improvement. Through this, we aspire to enhance the quality of life within these communities. Our commitment goes beyond providing information; we actively engage in tangible assistance, thereby fostering positive change and making a meaningful impact on the well-being of the communities we aim to support.</p>
+  </div>
+  <br><br>
+    <div class="faq-question" onclick="toggleAnswer(6)" style="width: 980px;">
+    <strong style="font-family: 'Cantarell';">5. On which social media platforms can we find Knowledge Crew?</strong>
+  </div>
+  <div class="faq-answer" id="answer6" style="width: 980px;">
+    <p style="font-family: 'Space Grotesk';">Knowledge Crew can be found on YouTube, Facebook, TikTok, and Instagram!</p> </main>
+  </div>
+
+<div id="contact-section" class="content-section">
+  <main>
+    <h2 style="font-family: 'Space Grotesk'; margin-left: 10px; margin-right: 90px;">Knowledge Crew:</h2>
+    <br>
+ <div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="diaz.jpg" style="width:100% ; height: 100%">
+      <div class="container1">
+        <h2 style="font-family: 'Space Grotesk';">Katherina Diaz</h2>
+        <p class="title">Facilitator &amp; Programmer</p>
+        <p>ap.katherina.diaz@apecschools.edu.ph</p>
+          <p><button class="button" onclick="openEmail('ap.katherina.diaz@apecschools.edu.ph')">Contact</button></p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="isa.jpg" alt="Mike" style="width:100%; height: 100%">
+      <div class="container1">
+        <h2 style="font-family: 'Space Grotesk';">Ysa Inciong</h2>
+        <p class="title">Spokesperson</p>
+        <p>ap.ysa.inciong@apecschools.edu.ph</p>
+      <p><button class="button" onclick="openEmail('ap.ysa.inciong@apecschools.edu.ph')">Contact</button></p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="dy.jpg" alt="John" style="width:100%; height: 100%">
+      <div class="container1">
+        <h2 style="font-family: 'Space Grotesk';">Marielle Jhellssey Dy</h2>
+        <p class="title">Scribe</p>
+        <p>ap.mariellejhelssey.dy@apecschools.edu.ph</p>
+        <p><button class="button" onclick="openEmail('ap.mariellejhelssey.dy@apecschools.edu.ph')">Contact</button></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="mavi.jpg" style="width:100% ; height: 100%">
+      <div class="container1">
+        <h2 style="font-family: 'Space Grotesk';">Ma. Victoria De Vera</h2>
+        <p class="title">Spokesperson</p>
+        <p>ap.mavictoria.devera@apecschools.edu.ph</p>
+        <p><button class="button" onclick="openEmail('ap.mavictoria.devera@apecschools.edu.ph')">Contact</button></p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="marie.jpg" alt="Mike" style="width:100%; height: 100%">
+      <div class="container1">
+        <h2 style="font-family: 'Space Grotesk';">Anna Dimasu-ay</h2>
+        <p class="title">Scribe</p>
+        <p>ap.anna.dimasu-ay@apecschools.edu.ph</p>
+        <p><button class="button" onclick="openEmail('ap.anna.dimasu-ay@apecschools.edu.ph')">Contact</button></p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="jomar.jpg" alt="John" style="width:100%; height: 100%">
+      <div class="container1">
+        <h2 style="font-family: 'Space Grotesk';">Jomar Medoranda</h2>
+        <p class="title">Spokesperson</p>
+        <p>ap.jomar.medoranda@apecschools.edu.ph</p>
+        <p><button class="button" onclick="openEmail('ap.jomar.medoranda@apecschools.edu.ph')">Contact</button></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+  </main>
+    <section class="fwh-slide--4th" style="width: 1045px;">
+<p style="font-family: 'Space Grotesk'; text-align: center; font-size: 14px;">@Knowledge Crew All Rights Reserved.</p>
+    </section>
+</div>
+
+<script>
+  function openSection(sectionId) {
+    document.querySelectorAll('.content-section').forEach(function (element) {
+      element.classList.remove('active-section');
+    });
+
+    document.getElementById(sectionId).classList.add('active-section');
+  }
+
+  function toggleAnswer(questionNumber) {
+    var answerId = 'answer' + questionNumber;
+    var answer = document.getElementById(answerId);
+
+    if (answer.style.display === 'block') {
+      answer.style.display = 'none';
+      document.querySelector('.faq-question.active').classList.remove('active');
+    } else {
+      answer.style.display = 'block';
+      document.querySelector('.faq-question.active')?.classList.remove('active');
+      document.querySelector('.faq-question:nth-child(' + questionNumber + ')').classList.add('active');
+    }
+  }
+
+  const sections = document.querySelectorAll(".section");
+  sections.forEach((section) => {
+    section.addEventListener("click", () => {
+      sections.forEach((section) => {
+        section.classList.remove("active");
+      });
+      section.classList.add("active");
+    });
+  });
+  
+  function openEmail(email) {
+    window.location.href = "mailto:" + email;
+  }
+  
+  
+  
+</script>
+
+</body>
+</html>
